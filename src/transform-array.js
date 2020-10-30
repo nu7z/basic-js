@@ -3,11 +3,11 @@ const CustomError = require("../extensions/custom-error");
 module.exports = function transform(arr) {
     if (!Array.isArray(arr)) {
         throw new Error();
-      }
+    }
+
+    const newArr = [];
     
-      const newArr = [];
-    
-      for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         switch (arr[i]) {
           case "--discard-next":
             newArr.push("");
@@ -31,7 +31,7 @@ module.exports = function transform(arr) {
           default:
             newArr.push(arr[i]);
         }
-      }
+    }
     
-      return newArr.filter((e) => e !== "");
+    return newArr.filter((e) => e !== "");
 }
